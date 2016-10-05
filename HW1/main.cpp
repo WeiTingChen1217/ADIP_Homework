@@ -194,23 +194,24 @@ int main(int argc, const char * argv[])
         // save lenamat_90Degree
         char FileNameRes_90Degree[] = "../../HW1/lena256_90Degree.raw";
         name_Receive = fopen(FileNameRes_90Degree, "wb");
-        fwrite(lenamat_90Degree, sizeof(lenamat_90Degree), 1, name_Receive);
+        fwrite(lenao_90Degree_2, size, 1, name_Receive);
         printf("lenamat_90Degree    save as lena256_90Degree.raw\n");
         // save lenamat_cut
         char FileNameRes_cut[] = "../../HW1/lena256_cut.raw";
         name_Receive = fopen(FileNameRes_cut, "wb");
-        fwrite(lenamat_cut, sizeof(lenamat_cut), 1, name_Receive);
+        fwrite(lenao_cut, size, 1, name_Receive);
         printf("lenamat_cut         save as lena256_cut.raw\n");
         // save lenamat_brightness
         char FileNameRes_brightness[] = "../../HW1/lena256_brightness.raw";
         name_Receive = fopen(FileNameRes_brightness, "wb");
-        fwrite(lenamat_brightness, sizeof(lenamat_brightness), 1, name_Receive);
+        fwrite(lenao_brightness, size, 1, name_Receive);
         printf("lenamat_brightness  save as lena256_brightness.raw\n");
         // save lenamat_studentID
-        char FileNameRes_studentID[] = "../../HW1/lena256_studentID.raw";
-        name_Receive = fopen(FileNameRes_studentID, "wb");
-        fwrite(lenamat_studentID, sizeof(lenamat_studentID), 1, name_Receive);
-        printf("lenamat_studentID   save as lena256_studentID.raw\n");
+        char FileNameRes_studentID[] = "../../HW1/lena256_studentID.png";
+//        name_Receive = fopen(FileNameRes_studentID, "wb");
+//        fwrite(lenamat_studentID, sizeof(lenamat_studentID), 1, name_Receive);
+        cvSaveImage(FileNameRes_studentID, lenamat_studentID);
+        printf("lenamat_studentID   save as lena256_studentID.png\n");
 
         fclose(lena);
         fclose(lena_512);

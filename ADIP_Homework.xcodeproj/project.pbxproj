@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
+		A868E6491DA54FCB009B3E67 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A868E6481DA54FCB009B3E67 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,7 @@
 		A868E63E1DA54D1A009B3E67 /* HW1_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW1_2.cpp; sourceTree = "<group>"; };
 		A868E63F1DA54D1A009B3E67 /* HW1_report.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HW1_report.pdf; sourceTree = "<group>"; };
 		A868E6401DA54D1A009B3E67 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A868E6481DA54FCB009B3E67 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +86,7 @@
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
+				A868E6481DA54FCB009B3E67 /* README.md */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6321DA54CB4009B3E67 /* HW1 */,
 				A884A2C81DA54AE70079D6BF /* Products */,
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A868E6491DA54FCB009B3E67 /* README.md in Sources */,
 				A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +360,7 @@
 				A868E6371DA54CB4009B3E67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A884A2C21DA54AE70079D6BF /* Build configuration list for PBXProject "ADIP_Homework" */ = {
 			isa = XCConfigurationList;
