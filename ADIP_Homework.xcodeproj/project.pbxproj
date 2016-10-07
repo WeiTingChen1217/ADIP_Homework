@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
-		A868E6491DA54FCB009B3E67 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = A868E6481DA54FCB009B3E67 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +45,8 @@
 		A868E63F1DA54D1A009B3E67 /* HW1_report.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HW1_report.pdf; sourceTree = "<group>"; };
 		A868E6401DA54D1A009B3E67 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A868E6481DA54FCB009B3E67 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A868E6531DA7595D009B3E67 /* lena256.raw */ = {isa = PBXFileReference; lastKnownFileType = text; name = lena256.raw; path = doc/HW1/lena256.raw; sourceTree = "<group>"; };
+		A868E6541DA7595D009B3E67 /* lena512.raw */ = {isa = PBXFileReference; lastKnownFileType = text; name = lena512.raw; path = doc/HW1/lena512.raw; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,9 +84,27 @@
 			path = HW1;
 			sourceTree = "<group>";
 		};
+		A868E64B1DA7587C009B3E67 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				A868E64C1DA7589C009B3E67 /* HW1 */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+		A868E64C1DA7589C009B3E67 /* HW1 */ = {
+			isa = PBXGroup;
+			children = (
+				A868E6531DA7595D009B3E67 /* lena256.raw */,
+				A868E6541DA7595D009B3E67 /* lena512.raw */,
+			);
+			name = HW1;
+			sourceTree = "<group>";
+		};
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
+				A868E64B1DA7587C009B3E67 /* doc */,
 				A868E6481DA54FCB009B3E67 /* README.md */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6321DA54CB4009B3E67 /* HW1 */,
@@ -195,7 +214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A868E6491DA54FCB009B3E67 /* README.md in Sources */,
 				A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
