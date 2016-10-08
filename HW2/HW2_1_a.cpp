@@ -12,20 +12,18 @@
 //#include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "This is homework2.\n";
+CvMat *lenamat;
 
-    char FileNameOri[] = "../../doc/HW1/lena256.raw";
-    int size = 256*256;
+void OpenRAW(char FileNameOri[], int width, int height){
+    int size = width*height;
     /// 建立一個單通道256*256大小的
-    CvMat *lenamat = cvCreateMat(256, 256, CV_8UC1);
+    lenamat = cvCreateMat(width, height, CV_8UC1);
     
     /// 建立處理圖片的空間
     unsigned char *lenai;
     
     lenai = new unsigned char[size];
-
+    
     FILE *lena;
     lena = fopen(FileNameOri, "rb");
     
@@ -40,21 +38,10 @@ int main(int argc, const char * argv[]) {
         /// 顯示原始影像
         cvSetData(lenamat, lenai, lenamat->step);
     }
-    
-    
-    cv::Mat matSrc, matDst1, matDst2;
-    
-//    matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
-//    matSrc = cv::imread("../../doc/lena_256.jpg", 0);
+}
 
-    //注意：当将参数copyData设为true后，则为深拷贝（复制整个图像数据）
-    matSrc = cv::cvarrToMat(lenamat, true); //lenamat copy to matSrc
-    matDst1 = cv::Mat(cv::Size(576, 576), matSrc.type(), cv::Scalar::all(0));
-    matDst2 = cv::Mat(matDst1.size()    , matSrc.type(), cv::Scalar::all(0));
-    
-    double scale_x = (double)matSrc.cols / matDst1.cols;
-    double scale_y = (double)matSrc.rows / matDst1.rows;
-    
+void Nearest_neighbor(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, double scale_y){
+    // Nearest neighbor
     for (int i = 0; i < matDst1.cols; ++i)
     {
         int sx = cvFloor(i * scale_x);
@@ -63,19 +50,13 @@ int main(int argc, const char * argv[]) {
         {
             int sy = cvFloor(j * scale_y);
             sy = std::min(sy, matSrc.rows - 1);
-//            matDst1.at<cv::Vec3b>(j, i) = matSrc.at<cv::Vec3b>(sy, sx);//for Color Image
+            //            matDst1.at<cv::Vec3b>(j, i) = matSrc.at<cv::Vec3b>(sy, sx);//for Color Image
             matDst1.at<uchar>(j, i) = matSrc.at<uchar>(sy, sx);//for Gray Image
-
+            
         }
     }
     cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, cv::INTER_NEAREST);
-
-
-    /// Display lenamat
-    namedWindow("Display_lenamat", cv::WINDOW_AUTOSIZE);
-    cvMoveWindow("Display_lenamat", 0, 0);
-    cvShowImage("Display_lenamat", lenamat);
-    printf("Display_lenamat\n");
+    
     /// Display matSrc
     namedWindow("Display_matSrc", cv::WINDOW_AUTOSIZE);
     cvMoveWindow("Display_matSrc", 0, 256);
@@ -93,10 +74,36 @@ int main(int argc, const char * argv[]) {
     printf("Display_matDst2\n");
     
     cvWaitKey(0);
-
+    
     cv::imwrite("../../HW2/nearest_1.jpg", matDst1);
     
     cv::imwrite("../../HW2/nearest_2.jpg", matDst2);
+}
+
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    std::cout << "This is homework2.\n";
+
+    char FileNameOri[] = "../../doc/HW1/lena256.raw";
+    OpenRAW(FileNameOri, 256, 256);
+    
+    cv::Mat matSrc, matDst1, matDst2;
+    
+//    matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
+//    matSrc = cv::imread("../../doc/lena_256.jpg", 0);
+    //注意：当将参数copyData设为true后，则为深拷贝（复制整个图像数据）
+    matSrc = cv::cvarrToMat(lenamat, true); //lenamat copy to matSrc
+    matDst1 = cv::Mat(cv::Size(576, 576), matSrc.type(), cv::Scalar::all(0));
+    matDst2 = cv::Mat(matDst1.size()    , matSrc.type(), cv::Scalar::all(0));
+    
+    double scale_x = (double)matSrc.cols / matDst1.cols;
+    double scale_y = (double)matSrc.rows / matDst1.rows;
+    
+    // Nearest neighbor
+    Nearest_neighbor(matSrc, matDst1, matDst2, scale_x, scale_y);
+    
+    
+    
     
     return 0;
 }
