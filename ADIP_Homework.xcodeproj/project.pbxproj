@@ -9,10 +9,20 @@
 /* Begin PBXBuildFile section */
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
+		A868E65C1DA75A4F009B3E67 /* HW2_1_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E65B1DA75A4F009B3E67 /* HW2_1_a.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A868E62F1DA54CB4009B3E67 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A868E6571DA75A4F009B3E67 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -47,11 +57,25 @@
 		A868E6481DA54FCB009B3E67 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A868E6531DA7595D009B3E67 /* lena256.raw */ = {isa = PBXFileReference; lastKnownFileType = text; name = lena256.raw; path = doc/HW1/lena256.raw; sourceTree = "<group>"; };
 		A868E6541DA7595D009B3E67 /* lena512.raw */ = {isa = PBXFileReference; lastKnownFileType = text; name = lena512.raw; path = doc/HW1/lena512.raw; sourceTree = "<group>"; };
+		A868E6591DA75A4F009B3E67 /* HW2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW2; sourceTree = BUILT_PRODUCTS_DIR; };
+		A868E65B1DA75A4F009B3E67 /* HW2_1_a.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HW2_1_a.cpp; sourceTree = "<group>"; };
+		A868E6601DA75EC0009B3E67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A868E6611DA762D4009B3E67 /* HW2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = HW2.bmp; path = "../../../Google 雲端硬碟/「碩二上課程」/高等數位影像/Homework/HW2_104368022/HW2.bmp"; sourceTree = "<group>"; };
+		A868E6621DA7632D009B3E67 /* HW1#1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = "HW1#1.bmp"; path = "../../../Google 雲端硬碟/「碩二上課程」/高等數位影像/Homework/HW1_104368022/HW1/HW1#1.bmp"; sourceTree = "<group>"; };
+		A868E6631DA7632D009B3E67 /* HW1#2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = "HW1#2.bmp"; path = "../../../Google 雲端硬碟/「碩二上課程」/高等數位影像/Homework/HW1_104368022/HW1/HW1#2.bmp"; sourceTree = "<group>"; };
+		A868E66F1DA79B1E009B3E67 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = doc/lena.jpg; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A868E62E1DA54CB4009B3E67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A868E6561DA75A4F009B3E67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,6 +95,8 @@
 		A868E6321DA54CB4009B3E67 /* HW1 */ = {
 			isa = PBXGroup;
 			children = (
+				A868E6621DA7632D009B3E67 /* HW1#1.bmp */,
+				A868E6631DA7632D009B3E67 /* HW1#2.bmp */,
 				A868E6381DA54D1A009B3E67 /* homework-post.pdf */,
 				A868E63F1DA54D1A009B3E67 /* HW1_report.pdf */,
 				A868E6401DA54D1A009B3E67 /* main.cpp */,
@@ -87,6 +113,7 @@
 		A868E64B1DA7587C009B3E67 /* doc */ = {
 			isa = PBXGroup;
 			children = (
+				A868E66F1DA79B1E009B3E67 /* lena.jpg */,
 				A868E64C1DA7589C009B3E67 /* HW1 */,
 			);
 			name = doc;
@@ -101,6 +128,16 @@
 			name = HW1;
 			sourceTree = "<group>";
 		};
+		A868E65A1DA75A4F009B3E67 /* HW2 */ = {
+			isa = PBXGroup;
+			children = (
+				A868E6611DA762D4009B3E67 /* HW2.bmp */,
+				A868E65B1DA75A4F009B3E67 /* HW2_1_a.cpp */,
+				A868E6601DA75EC0009B3E67 /* README.md */,
+			);
+			path = HW2;
+			sourceTree = "<group>";
+		};
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +145,7 @@
 				A868E6481DA54FCB009B3E67 /* README.md */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6321DA54CB4009B3E67 /* HW1 */,
+				A868E65A1DA75A4F009B3E67 /* HW2 */,
 				A884A2C81DA54AE70079D6BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +155,7 @@
 			children = (
 				A884A2C71DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6311DA54CB4009B3E67 /* HW1 */,
+				A868E6591DA75A4F009B3E67 /* HW2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +188,23 @@
 			productReference = A868E6311DA54CB4009B3E67 /* HW1 */;
 			productType = "com.apple.product-type.tool";
 		};
+		A868E6581DA75A4F009B3E67 /* HW2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A868E65D1DA75A4F009B3E67 /* Build configuration list for PBXNativeTarget "HW2" */;
+			buildPhases = (
+				A868E6551DA75A4F009B3E67 /* Sources */,
+				A868E6561DA75A4F009B3E67 /* Frameworks */,
+				A868E6571DA75A4F009B3E67 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HW2;
+			productName = HW2;
+			productReference = A868E6591DA75A4F009B3E67 /* HW2 */;
+			productType = "com.apple.product-type.tool";
+		};
 		A884A2C61DA54AE70079D6BF /* ADIP_Homework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A884A2CE1DA54AE70079D6BF /* Build configuration list for PBXNativeTarget "ADIP_Homework" */;
@@ -178,6 +234,9 @@
 					A868E6301DA54CB4009B3E67 = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					A868E6581DA75A4F009B3E67 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					A884A2C61DA54AE70079D6BF = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -197,6 +256,7 @@
 			targets = (
 				A884A2C61DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6301DA54CB4009B3E67 /* HW1 */,
+				A868E6581DA75A4F009B3E67 /* HW2 */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A868E6471DA54D1A009B3E67 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A868E6551DA75A4F009B3E67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A868E65C1DA75A4F009B3E67 /* HW2_1_a.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +297,20 @@
 			name = Debug;
 		};
 		A868E6371DA54CB4009B3E67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A868E65E1DA75A4F009B3E67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A868E65F1DA75A4F009B3E67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -271,8 +353,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv3/3.1.0_4/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv3/3.1.0_4/lib;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/opt/opencv3/include,
+					/usr/local/Cellar/opencv3/3.1.0_4/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/opt/opencv3/lib,
+					/usr/local/Cellar/opencv3/3.1.0_4/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -328,8 +416,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv3/3.1.0_4/include;
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv3/3.1.0_4/lib;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/opt/opencv3/include,
+					/usr/local/Cellar/opencv3/3.1.0_4/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/opt/opencv3/lib,
+					/usr/local/Cellar/opencv3/3.1.0_4/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = (
@@ -379,6 +473,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A868E65D1DA75A4F009B3E67 /* Build configuration list for PBXNativeTarget "HW2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A868E65E1DA75A4F009B3E67 /* Debug */,
+				A868E65F1DA75A4F009B3E67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		A884A2C21DA54AE70079D6BF /* Build configuration list for PBXProject "ADIP_Homework" */ = {
 			isa = XCConfigurationList;
