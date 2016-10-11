@@ -100,7 +100,7 @@ void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, 
 
     uchar* dataDst = matDst1.data;  // 將記憶體位置給dataDst，也就是dataDst等於matDst的圖片
     int stepDst = (int)matDst1.step;    // (int)matDst1.step也就是取matDst1.step[0]的意思; 代表一列所有的數據大小; 以256*256灰階圖為例，matDst1.step[0]=matDst1.cols*matDst1.Size()=256*1=256
-    uchar* dataSrc = matSrc.data; 
+    uchar* dataSrc = matSrc.data;
     int stepSrc = (int)matSrc.step;
     int iWidthSrc = matSrc.cols;
     int iHiehgtSrc = matSrc.rows;
@@ -135,24 +135,33 @@ void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, 
             cbufx[1] = 2048 - cbufx[0];
             
 //            for (int k = 0; k < matSrc.channels(); ++k)
-            for (int k = 0; k < 3; ++k)
-            {
-                *(dataDst+ j*stepDst + 3*i + k) = (*(dataSrc + sy*stepSrc + 3*sx + k) * cbufx[0] * cbufy[0] +
-                                                   *(dataSrc + (sy+1)*stepSrc + 3*sx + k) * cbufx[0] * cbufy[1] +
-                                                   *(dataSrc + sy*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] + 
-                                                   *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]) >> 22;
-            }
+//            {
+//                *(dataDst+ j*stepDst + 3*i + k) = (
+//                *(dataSrc +  sy   *stepSrc + 3* sx    + k) * cbufx[0] * cbufy[0] +
+//                *(dataSrc + (sy+1)*stepSrc + 3* sx    + k) * cbufx[0] * cbufy[1] +
+//                *(dataSrc +  sy   *stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] +
+//                *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]
+//                                                   ) >> 22;
+//            }
+
+            *(dataDst+ j*stepDst + i) = (
+                *(dataSrc +  sy   *stepSrc +  sx   ) * cbufx[0] * cbufy[0] +
+                *(dataSrc + (sy+1)*stepSrc +  sx   ) * cbufx[0] * cbufy[1] +
+                *(dataSrc +  sy   *stepSrc + (sx+1)) * cbufx[1] * cbufy[0] +
+                *(dataSrc + (sy+1)*stepSrc + (sx+1)) * cbufx[1] * cbufy[1]
+                                               ) >> 22;
+
         }
     }
     cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, cv::INTER_LINEAR);
 
     showImage(matSrc, matDst1, matDst2);
     
-    // Save image
-    cv::imwrite("../../HW2/linear_1.jpg", matDst1);
-    printf("Save matDst1 as linear_1.jpg\n");
-    cv::imwrite("../../HW2/linear_2.jpg", matDst2);
-    printf("Save matDst2 as linear_1.jpg\n");
+//    // Save image
+//    cv::imwrite("../../HW2/linear_1.jpg", matDst1);
+//    printf("Save matDst1 as linear_1.jpg\n");
+//    cv::imwrite("../../HW2/linear_2.jpg", matDst2);
+//    printf("Save matDst2 as linear_1.jpg\n");
     
     std::cout << "Bilinear interpolation done!!.\n\n";
 }
