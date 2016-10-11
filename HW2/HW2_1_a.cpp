@@ -100,7 +100,7 @@ void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, 
 
     uchar* dataDst = matDst1.data;  // 將記憶體位置給dataDst，也就是dataDst等於matDst的圖片
     int stepDst = (int)matDst1.step;    // (int)matDst1.step也就是取matDst1.step[0]的意思; 代表一列所有的數據大小; 以256*256灰階圖為例，matDst1.step[0]=matDst1.cols*matDst1.Size()=256*1=256
-    uchar* dataSrc = matSrc.data;
+    uchar* dataSrc = matSrc.data; 
     int stepSrc = (int)matSrc.step;
     int iWidthSrc = matSrc.cols;
     int iHiehgtSrc = matSrc.rows;
