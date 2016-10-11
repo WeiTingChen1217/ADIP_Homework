@@ -42,7 +42,7 @@ void OpenRAW(char FileNameOri[], int width, int height){
     }
 }
 
-void showImage(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2){
+void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
     /// Display matSrc
     namedWindow("Display_matSrc", cv::WINDOW_AUTOSIZE);
     cvMoveWindow("Display_matSrc", 0, 0);
@@ -66,7 +66,7 @@ void showImage(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2){
     cvDestroyWindow("Display_matDst2");
 }
 
-void nearest_neighbor(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, double scale_y){
+void nearest_neighbor(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
     std::cout << "Doing nearest neighbor interpolation.\n";
     
     for (int i = 0; i < matDst1.cols; ++i)
@@ -95,7 +95,7 @@ void nearest_neighbor(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double s
     std::cout << "nearest neighbor interpolation done!!.\n\n";
 }
 
-void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, double scale_y){
+void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
     std::cout << "Doing bilinear interpolation.\n";
 
     uchar* dataDst = matDst1.data;  // 將記憶體位置給dataDst，也就是dataDst等於matDst的圖片
@@ -114,7 +114,7 @@ void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, 
         sy = std::max(0, sy);
         
         short cbufy[2];
-        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * 2048);
+        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * 2048);// 使數值不要溢位
         cbufy[1] = 2048 - cbufy[0];
         
         for (int i = 0; i < matDst1.cols; ++i)
@@ -166,6 +166,10 @@ void bilinear(cv::Mat matSrc, cv::Mat matDst1, cv::Mat matDst2, double scale_x, 
     std::cout << "Bilinear interpolation done!!.\n\n";
 }
 
+void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
+    
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "This is homework2.\n\n";
@@ -191,10 +195,11 @@ int main(int argc, const char * argv[]) {
 //    // Nearest neighbor
 //    nearest_neighbor(matSrc, matDst1, matDst2, scale_x, scale_y);
     
-    // Bilinear
-    bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
+//    // Bilinear
+//    bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
     
-    
+    // Bicubic
+    bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
     
     return 0;
 }

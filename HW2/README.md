@@ -46,3 +46,10 @@
 - http://monkeycoding.com/?p=531#i-6
 
 
+@ saturate_cast 防止數據溢出
+- http://blog.csdn.net/mjlsuccess/article/details/12401839#
+
+
+
+
+
