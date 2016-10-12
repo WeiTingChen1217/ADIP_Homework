@@ -8,9 +8,9 @@
 
 #include <iostream>
 #include <stdio.h>
-//#include <opencv2/core/core.hpp>
-//#include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
+
+//#define color
 
 CvMat *lenamat;
 int sizDst_width;
@@ -67,6 +67,8 @@ void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
 }
 
 void nearest_neighbor(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
+// Reference:http://blog.csdn.net/lichengyu/article/details/8526629
+
     std::cout << "Doing nearest neighbor interpolation.\n";
     
     for (int i = 0; i < matDst1.cols; ++i)
@@ -77,15 +79,17 @@ void nearest_neighbor(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, doubl
         {
             int sy = cvFloor(j * scale_y);
             sy = std::min(sy, matSrc.rows - 1);
-            //            matDst1.at<cv::Vec3b>(j, i) = matSrc.at<cv::Vec3b>(sy, sx);//for Color Image
+# ifdef color
+            matDst1.at<cv::Vec3b>(j, i) = matSrc.at<cv::Vec3b>(sy, sx);//for Color Image
+# else
             matDst1.at<uchar>(j, i) = matSrc.at<uchar>(sy, sx);//for Gray Image
-            
+# endif
         }
     }
     cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, cv::INTER_NEAREST);
     
     showImage(matSrc, matDst1, matDst2);
-    
+
 //    // Save image
 //    cv::imwrite("../../HW2/nearest_1.jpg", matDst1);
 //    printf("Save matDst1 as nearest_1.jpg\n");
@@ -96,10 +100,13 @@ void nearest_neighbor(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, doubl
 }
 
 void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
+// Reference:http://blog.csdn.net/lichengyu/article/details/8526629
+    
     std::cout << "Doing bilinear interpolation.\n";
 
-    uchar* dataDst = matDst1.data;  // 將記憶體位置給dataDst，也就是dataDst等於matDst的圖片
-    int stepDst = (int)matDst1.step;    // (int)matDst1.step也就是取matDst1.step[0]的意思; 代表一列所有的數據大小; 以256*256灰階圖為例，matDst1.step[0]=matDst1.cols*matDst1.Size()=256*1=256
+    uchar* dataDst = matDst1.data;
+    int stepDst = (int)matDst1.step;// 使用指標讀取圖檔的時候會用到 .step
+    // (int)matDst1.step也就是取matDst1.step[0]的意思; 代表一列所有的數據大小; 以256*256灰階圖為例，matDst1.step[0]=matDst1.cols*matDst1.Size()=256*1=256
     uchar* dataSrc = matSrc.data;
     int stepSrc = (int)matSrc.step;
     int iWidthSrc = matSrc.cols;
@@ -107,14 +114,14 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
 
     for (int j = 0; j < matDst1.rows; ++j)
     {
-        float fy = (float)((j + 0.5) * scale_y - 0.5);
+        float fy = (float)((j + 0.5) * scale_y - 0.5); // 使得圖像邊緣也被處理到
         int sy = cvFloor(fy);
-        fy -= sy;   // 取得差值的小數點
+        fy -= sy; // 取 fy 小數點
         sy = std::min(sy, iHiehgtSrc - 2);
         sy = std::max(0, sy);
         
         short cbufy[2];
-        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * 2048);// 使數值不要溢位
+        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * 2048); // saturate_cast 使數值不要溢位
         cbufy[1] = 2048 - cbufy[0];
         
         for (int i = 0; i < matDst1.cols; ++i)
@@ -133,24 +140,24 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
             short cbufx[2];
             cbufx[0] = cv::saturate_cast<short>((1.f - fx) * 2048);
             cbufx[1] = 2048 - cbufx[0];
-            
-//            for (int k = 0; k < matSrc.channels(); ++k)
-//            {
-//                *(dataDst+ j*stepDst + 3*i + k) = (
-//                *(dataSrc +  sy   *stepSrc + 3* sx    + k) * cbufx[0] * cbufy[0] +
-//                *(dataSrc + (sy+1)*stepSrc + 3* sx    + k) * cbufx[0] * cbufy[1] +
-//                *(dataSrc +  sy   *stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] +
-//                *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]
-//                                                   ) >> 22;
-//            }
-
+# ifdef color
+            for (int k = 0; k < matSrc.channels(); ++k)
+            {
+                *(dataDst+ j*stepDst + 3*i + k) = (
+                *(dataSrc +  sy   *stepSrc + 3* sx    + k) * cbufx[0] * cbufy[0] +
+                *(dataSrc + (sy+1)*stepSrc + 3* sx    + k) * cbufx[0] * cbufy[1] +
+                *(dataSrc +  sy   *stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] +
+                *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]
+                                                   ) >> 22;
+            }
+# else
             *(dataDst+ j*stepDst + i) = (
                 *(dataSrc +  sy   *stepSrc +  sx   ) * cbufx[0] * cbufy[0] +
                 *(dataSrc + (sy+1)*stepSrc +  sx   ) * cbufx[0] * cbufy[1] +
                 *(dataSrc +  sy   *stepSrc + (sx+1)) * cbufx[1] * cbufy[0] +
                 *(dataSrc + (sy+1)*stepSrc + (sx+1)) * cbufx[1] * cbufy[1]
                                                ) >> 22;
-
+# endif
         }
     }
     cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, cv::INTER_LINEAR);
@@ -167,8 +174,120 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
 }
 
 void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
+// Reference:http://blog.csdn.net/lichengyu/article/details/8526629
+
+    std::cout << "Doing bicubic interpolation.\n";
     
+    int iscale_x = cv::saturate_cast<int>(scale_x);
+    int iscale_y = cv::saturate_cast<int>(scale_y);
+    
+    for (int j = 0; j < matDst1.rows; ++j)
+    {
+        float fy = (float)((j + 0.5) * scale_y - 0.5);
+        int sy = cvFloor(fy);
+        fy -= sy;
+        sy = std::min(sy, matSrc.rows - 3);
+        sy = std::max(1, sy);
+        
+        const float A = -0.75f;
+        
+        float coeffsY[4];
+        coeffsY[0] = ((A*(fy + 1) - 5*A)*(fy + 1) + 8*A)*(fy + 1) - 4*A;
+        coeffsY[1] = ((A + 2)*fy - (A + 3))*fy*fy + 1;
+        coeffsY[2] = ((A + 2)*(1 - fy) - (A + 3))*(1 - fy)*(1 - fy) + 1;
+        coeffsY[3] = 1.f - coeffsY[0] - coeffsY[1] - coeffsY[2];
+        
+        short cbufY[4];
+        cbufY[0] = cv::saturate_cast<short>(coeffsY[0] * 2048);
+        cbufY[1] = cv::saturate_cast<short>(coeffsY[1] * 2048);
+        cbufY[2] = cv::saturate_cast<short>(coeffsY[2] * 2048);
+        cbufY[3] = cv::saturate_cast<short>(coeffsY[3] * 2048);
+        
+        for (int i = 0; i < matDst1.cols; ++i)
+        {
+            float fx = (float)((i + 0.5) * scale_x - 0.5);
+            int sx = cvFloor(fx);
+            fx -= sx;
+            
+            if (sx < 1) {
+                fx = 0, sx = 1;
+            }
+            if (sx >= matSrc.cols - 3) {
+                fx = 0, sx = matSrc.cols - 3;
+            }
+            
+            float coeffsX[4];
+            coeffsX[0] = ((A*(fx + 1) - 5*A)*(fx + 1) + 8*A)*(fx + 1) - 4*A;
+            coeffsX[1] = ((A + 2)*fx - (A + 3))*fx*fx + 1;
+            coeffsX[2] = ((A + 2)*(1 - fx) - (A + 3))*(1 - fx)*(1 - fx) + 1;
+            coeffsX[3] = 1.f - coeffsX[0] - coeffsX[1] - coeffsX[2];
+            
+            short cbufX[4];
+            cbufX[0] = cv::saturate_cast<short>(coeffsX[0] * 2048);
+            cbufX[1] = cv::saturate_cast<short>(coeffsX[1] * 2048);
+            cbufX[2] = cv::saturate_cast<short>(coeffsX[2] * 2048);
+            cbufX[3] = cv::saturate_cast<short>(coeffsX[3] * 2048);
+
+# ifdef color
+            for (int k = 0; k < matSrc.channels(); ++k)
+            {
+                matDst1.at<cv::Vec3b>(j, i)[k] = abs(
+                    (
+                    matSrc.at<cv::Vec3b>(sy-1, sx-1)[k] * cbufX[0] * cbufY[0] +
+                    matSrc.at<cv::Vec3b>(sy, sx-1)[k] * cbufX[0] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy+1, sx-1)[k] * cbufX[0] * cbufY[2] +
+                    matSrc.at<cv::Vec3b>(sy+2, sx-1)[k] * cbufX[0] * cbufY[3] +
+                    matSrc.at<cv::Vec3b>(sy-1, sx)[k] * cbufX[1] * cbufY[0] +
+                    matSrc.at<cv::Vec3b>(sy, sx)[k] * cbufX[1] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy+1, sx)[k] * cbufX[1] * cbufY[2] +
+                    matSrc.at<cv::Vec3b>(sy+2, sx)[k] * cbufX[1] * cbufY[3] +
+                    matSrc.at<cv::Vec3b>(sy-1, sx+1)[k] * cbufX[2] * cbufY[0] +
+                    matSrc.at<cv::Vec3b>(sy, sx+1)[k] * cbufX[2] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy+1, sx+1)[k] * cbufX[2] * cbufY[2] +
+                    matSrc.at<cv::Vec3b>(sy+2, sx+1)[k] * cbufX[2] * cbufY[3] +
+                    matSrc.at<cv::Vec3b>(sy-1, sx+2)[k] * cbufX[3] * cbufY[0] +
+                    matSrc.at<cv::Vec3b>(sy, sx+2)[k] * cbufX[3] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy+1, sx+2)[k] * cbufX[3] * cbufY[2] +
+                    matSrc.at<cv::Vec3b>(sy+2, sx+2)[k] * cbufX[3] * cbufY[3]
+                    ) >> 22);
+            }
+# else
+            matDst1.at<uchar>(j, i) = abs(
+                (
+                matSrc.at<uchar>(sy-1, sx-1) * cbufX[0] * cbufY[0] +
+                matSrc.at<uchar>(sy,   sx-1) * cbufX[0] * cbufY[1] +
+                matSrc.at<uchar>(sy+1, sx-1) * cbufX[0] * cbufY[2] +
+                matSrc.at<uchar>(sy+2, sx-1) * cbufX[0] * cbufY[3] +
+                matSrc.at<uchar>(sy-1, sx  ) * cbufX[1] * cbufY[0] +
+                matSrc.at<uchar>(sy,   sx  ) * cbufX[1] * cbufY[1] +
+                matSrc.at<uchar>(sy+1, sx  ) * cbufX[1] * cbufY[2] +
+                matSrc.at<uchar>(sy+2, sx  ) * cbufX[1] * cbufY[3] +
+                matSrc.at<uchar>(sy-1, sx+1) * cbufX[2] * cbufY[0] +
+                matSrc.at<uchar>(sy,   sx+1) * cbufX[2] * cbufY[1] +
+                matSrc.at<uchar>(sy+1, sx+1) * cbufX[2] * cbufY[2] +
+                matSrc.at<uchar>(sy+2, sx+1) * cbufX[2] * cbufY[3] +
+                matSrc.at<uchar>(sy-1, sx+2) * cbufX[3] * cbufY[0] +
+                matSrc.at<uchar>(sy,   sx+2) * cbufX[3] * cbufY[1] +
+                matSrc.at<uchar>(sy+1, sx+2) * cbufX[3] * cbufY[2] +
+                matSrc.at<uchar>(sy+2, sx+2) * cbufX[3] * cbufY[3]
+                ) >> 22);
+# endif
+        }
+    }
+    
+    cv::resize(matSrc, matDst2, matDst1.size(), 0, 0, 2);
+    showImage(matSrc, matDst1, matDst2);
+
+//    // Save image
+//    cv::imwrite("../../HW2/bicubic_1.jpg", matDst1);
+//    printf("Save matDst1 as bicubic_1.jpg\n");
+//    cv::imwrite("../../HW2/bicubic_2.jpg", matDst2);
+//    printf("Save matDst2 as bicubic_1.jpg\n");
+
+    
+    std::cout << "Bicubic interpolation done!!.\n\n";
 }
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -183,9 +302,12 @@ int main(int argc, const char * argv[]) {
     cv::Mat matSrc, matDst1, matDst2;
     sizDst_width = 576;
     sizDst_height = 576;
-//    matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
+# ifdef color
+    matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
+# else
     //注意：当将参数copyData设为true后，则为深拷贝（复制整个图像数据）
     matSrc = cv::cvarrToMat(lenamat, true); //lenamat copy to matSrc
+# endif
     matDst1 = cv::Mat(cv::Size(sizDst_width, sizDst_height), matSrc.type(), cv::Scalar::all(0));
     matDst2 = cv::Mat(matDst1.size(), matSrc.type(), cv::Scalar::all(0));
     
@@ -198,8 +320,10 @@ int main(int argc, const char * argv[]) {
 //    // Bilinear
 //    bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
     
+    
     // Bicubic
     bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
     
+
     return 0;
 }
