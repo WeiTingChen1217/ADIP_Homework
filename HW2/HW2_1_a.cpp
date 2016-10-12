@@ -96,7 +96,7 @@ void nearest_neighbor(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, doubl
 //    cv::imwrite("../../HW2/nearest_2.jpg", matDst2);
 //    printf("Save matDst2 as nearest_2.jpg\n");
 
-    std::cout << "nearest neighbor interpolation done!!.\n\n";
+    std::cout << "Nearest neighbor interpolation done!!.\n\n";
 }
 
 void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x, double scale_y){
@@ -112,17 +112,22 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
     int iWidthSrc = matSrc.cols;
     int iHiehgtSrc = matSrc.rows;
 
+    double threshold = pow(2, 0); // 調整後 2^11 比較好
+    
     for (int j = 0; j < matDst1.rows; ++j)
     {
+        // sx, sy 記錄右上方的位置
+        // fx, fy 為 alpha, beta
         float fy = (float)((j + 0.5) * scale_y - 0.5); // 使得圖像邊緣也被處理到
         int sy = cvFloor(fy);
         fy -= sy; // 取 fy 小數點
-        sy = std::min(sy, iHiehgtSrc - 2);
-        sy = std::max(0, sy);
+        sy = std::min(sy, iHiehgtSrc - 2); // 最多取到倒數第二個值
+        sy = std::max(0, sy); // 不低於零
         
         short cbufy[2];
-        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * 2048); // saturate_cast 使數值不要溢位
-        cbufy[1] = 2048 - cbufy[0];
+        cbufy[0] = cv::saturate_cast<short>((1.f - fy) * threshold); // (1-beta)
+        // saturate_cast 使數值不溢出某(short)資料型態
+        cbufy[1] = threshold - cbufy[0]; // beta
         
         for (int i = 0; i < matDst1.cols; ++i)
         {
@@ -130,16 +135,13 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
             int sx = cvFloor(fx);
             fx -= sx;
             
-            if (sx < 0) {
-                fx = 0, sx = 0;
-            }
-            if (sx >= iWidthSrc - 1) {
-                fx = 0, sx = iWidthSrc - 2;
-            }
+            sx = std::min(sx, iWidthSrc - 2);
+            sx = std::max(0, sx);
             
             short cbufx[2];
-            cbufx[0] = cv::saturate_cast<short>((1.f - fx) * 2048);
-            cbufx[1] = 2048 - cbufx[0];
+            cbufx[0] = cv::saturate_cast<short>((1.f - fx) * threshold);
+            cbufx[1] = threshold - cbufx[0];
+            
 # ifdef color
             for (int k = 0; k < matSrc.channels(); ++k)
             {
@@ -148,15 +150,16 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
                 *(dataSrc + (sy+1)*stepSrc + 3* sx    + k) * cbufx[0] * cbufy[1] +
                 *(dataSrc +  sy   *stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[0] +
                 *(dataSrc + (sy+1)*stepSrc + 3*(sx+1) + k) * cbufx[1] * cbufy[1]
-                                                   ) >> 22;
+                ) >> 2*(int)log2(threshold);
             }
 # else
+            // 
             *(dataDst+ j*stepDst + i) = (
                 *(dataSrc +  sy   *stepSrc +  sx   ) * cbufx[0] * cbufy[0] +
                 *(dataSrc + (sy+1)*stepSrc +  sx   ) * cbufx[0] * cbufy[1] +
                 *(dataSrc +  sy   *stepSrc + (sx+1)) * cbufx[1] * cbufy[0] +
                 *(dataSrc + (sy+1)*stepSrc + (sx+1)) * cbufx[1] * cbufy[1]
-                                               ) >> 22;
+                ) >> 2*(int)log2(threshold); // 因為多乘了兩次 2048(2^11) 所以要除 2^22
 # endif
         }
     }
@@ -178,8 +181,8 @@ void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x
 
     std::cout << "Doing bicubic interpolation.\n";
     
-    int iscale_x = cv::saturate_cast<int>(scale_x);
-    int iscale_y = cv::saturate_cast<int>(scale_y);
+//    int iscale_x = cv::saturate_cast<int>(scale_x);
+//    int iscale_y = cv::saturate_cast<int>(scale_y);
     
     for (int j = 0; j < matDst1.rows; ++j)
     {
@@ -209,12 +212,8 @@ void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x
             int sx = cvFloor(fx);
             fx -= sx;
             
-            if (sx < 1) {
-                fx = 0, sx = 1;
-            }
-            if (sx >= matSrc.cols - 3) {
-                fx = 0, sx = matSrc.cols - 3;
-            }
+            sx = std::min(sx, matSrc.rows - 3);
+            sx = std::max(1, sx);
             
             float coeffsX[4];
             coeffsX[0] = ((A*(fx + 1) - 5*A)*(fx + 1) + 8*A)*(fx + 1) - 4*A;
@@ -293,15 +292,16 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "This is homework2.\n\n";
 
+    int size = 256;
     char FileNameOri[] = "../../doc/HW1/lena256.raw";
-    int sizeSrc_width = 256;
-    int sizeSrc_height = 256;
+    int sizeSrc_width = size;
+    int sizeSrc_height = size;
     OpenRAW(FileNameOri, sizeSrc_width, sizeSrc_height);
     
-    
+    size = 576;
     cv::Mat matSrc, matDst1, matDst2;
-    sizDst_width = 576;
-    sizDst_height = 576;
+    sizDst_width = size;
+    sizDst_height = size;
 # ifdef color
     matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
 # else
@@ -317,12 +317,11 @@ int main(int argc, const char * argv[]) {
 //    // Nearest neighbor
 //    nearest_neighbor(matSrc, matDst1, matDst2, scale_x, scale_y);
     
-//    // Bilinear
-//    bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
+    // Bilinear
+    bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
     
-    
-    // Bicubic
-    bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
+//    // Bicubic
+//    bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
     
 
     return 0;
