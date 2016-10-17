@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A868E6301DA54CB4009B3E67"
-            BuildableName = "HW1"
-            BlueprintName = "HW1"
+            BlueprintIdentifier = "A868E6581DA75A4F009B3E67"
+            BuildableName = "HW2"
+            BlueprintName = "HW2"
             ReferencedContainer = "container:ADIP_Homework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A868E6301DA54CB4009B3E67"
-            BuildableName = "HW1"
-            BlueprintName = "HW1"
+            BlueprintIdentifier = "A868E6581DA75A4F009B3E67"
+            BuildableName = "HW2"
+            BlueprintName = "HW2"
             ReferencedContainer = "container:ADIP_Homework.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

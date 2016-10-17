@@ -1,17 +1,14 @@
 //
-//  main.cpp
-//  HW2
+//  HW2_1_b.cpp
+//  ADIP_Homework
 //
-//  Created by WeiTingChen on 10/7/16.
+//  Created by WeiTingChen on 10/17/16.
 //  Copyright © 2016 WeiTingChen. All rights reserved.
 //
 
-#include <iostream>
 #include <stdio.h>
-
+#include <iostream>
 #include "zoomingAndShrinking.hpp"
-
-
 
 CvMat *lenamat;
 int sizDst_width;
@@ -44,7 +41,7 @@ void OpenRAW(char FileNameOri[], int width, int height){
 }
 
 void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
-    /// Display the sourse
+    /// Display the sourse 
     namedWindow("Display_matSrc", cv::WINDOW_AUTOSIZE);
     cvMoveWindow("Display_matSrc", 0, 0);
     imshow("Display_matSrc", matSrc);
@@ -59,7 +56,7 @@ void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
     cvMoveWindow("Display_matDst2", sizDst_width, 0);
     imshow("Display_matDst2", matDst2);
     printf("Display matDst2\n");
-
+    
     cvWaitKey(0);
     
     cvDestroyWindow("Display_matSrc");
@@ -70,14 +67,14 @@ void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "This is homework2.\n\n";
-
+    
     int size = 256;
     char FileNameOri[] = "../../doc/HW1/lena256.raw";
     int sizeSrc_width = size;
     int sizeSrc_height = size;
     OpenRAW(FileNameOri, sizeSrc_width, sizeSrc_height);
     
-    size = 576; // Zooming to size of 576x576
+    size = 200; // Zooming to size of 200x200
     cv::Mat matSrc, matDst1, matDst2;
     sizDst_width = size;
     sizDst_height = size;
@@ -97,28 +94,29 @@ int main(int argc, const char * argv[]) {
     nearest_neighbor(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/nearest_1_a.jpg", matDst1);
-    printf("Save matDst1 as nearest_1_a.jpg\n");
-//    cv::imwrite("../../HW2/output/nearest_2_a.jpg", matDst2);
-//    printf("Save matDst2 as nearest_2_a.jpg\n");
+    cv::imwrite("../../HW2/output/nearest_1_b.jpg", matDst1);
+    printf("Save matDst1 as nearest_1_b.jpg\n");
+//    cv::imwrite("../../HW2/output/nearest_2_b.jpg", matDst2);
+//    printf("Save matDst2 as nearest_2_b.jpg\n");
     
     /// Bilinear
     bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/linear_1_a.jpg", matDst1);
-    printf("Save matDst1 as linear_1_a.jpg\n");
-//    cv::imwrite("../../HW2/output/linear_2_a.jpg", matDst2);
-//    printf("Save matDst2 as linear_1_a.jpg\n");
+    cv::imwrite("../../HW2/output/linear_1_b.jpg", matDst1);
+    printf("Save matDst1 as linear_1_b.jpg\n");
+//    cv::imwrite("../../HW2/output/linear_2_b.jpg", matDst2);
+//    printf("Save matDst2 as linear_2_b.jpg\n");
     
     /// Bicubic
     bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/bicubic_1_a.jpg", matDst1);
-    printf("Save matDst1 as bicubic_1_a.jpg\n");
-//    cv::imwrite("../../HW2/output/bicubic_2_a.jpg", matDst2);
-//    printf("Save matDst2 as bicubic_1_a.jpg\n");
-
+    cv::imwrite("../../HW2/output/bicubic_1_b.jpg", matDst1);
+    printf("Save matDst1 as bicubic_1_b.jpg\n");
+//    cv::imwrite("../../HW2/output/bicubic_2_b.jpg", matDst2);
+//    printf("Save matDst2 as bicubic_2_b.jpg\n");
+    
     return 0;
 }
+
