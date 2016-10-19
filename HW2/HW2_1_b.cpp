@@ -10,6 +10,8 @@
 #include <iostream>
 #include "zoomingAndShrinking.hpp"
 
+# define blure
+
 CvMat *lenamat;
 int sizDst_width;
 int sizDst_height;
@@ -66,7 +68,7 @@ void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "This is homework2.\n\n";
+    std::cout << "This is homework2_1_b.\n\n";
     
     int size = 256;
     char FileNameOri[] = "../../doc/HW1/lena256.raw";
@@ -81,8 +83,11 @@ int main(int argc, const char * argv[]) {
 # ifdef color
     matSrc = cv::imread("../../doc/lena_256.jpg", 2 | 4);
 # else
-    //注意：當將参数 copyData 設為 true 後，則為深拷貝（複製整個圖像數據）
-    matSrc = cv::cvarrToMat(lenamat, true); //lenamat copy to matSrc
+# ifdef blure
+    matSrc = cv::imread("../../doc/HW2/lena256_blure.jpg", cv::IMREAD_GRAYSCALE);
+# else
+    matSrc = cv::imread("../../doc/HW2/lena256.jpg", cv::IMREAD_GRAYSCALE);
+# endif
 # endif
     matDst1 = cv::Mat(cv::Size(sizDst_width, sizDst_height), matSrc.type(), cv::Scalar::all(0));
     matDst2 = cv::Mat(matDst1.size(), matSrc.type(), cv::Scalar::all(0));
@@ -94,8 +99,13 @@ int main(int argc, const char * argv[]) {
     nearest_neighbor(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/nearest_1_b.jpg", matDst1);
-    printf("Save matDst1 as nearest_1_b.jpg\n");
+# ifdef blure
+    cv::imwrite("../../HW2/output/nearest_1_b_2.jpg", matDst1);
+    printf("Save matDst1 as nearest_1_b_2.jpg\n");
+# else
+    cv::imwrite("../../HW2/output/nearest_1_b_1.jpg", matDst1);
+    printf("Save matDst1 as nearest_1_b_1.jpg\n");
+# endif
 //    cv::imwrite("../../HW2/output/nearest_2_b.jpg", matDst2);
 //    printf("Save matDst2 as nearest_2_b.jpg\n");
     
@@ -103,8 +113,13 @@ int main(int argc, const char * argv[]) {
     bilinear(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/linear_1_b.jpg", matDst1);
-    printf("Save matDst1 as linear_1_b.jpg\n");
+# ifdef blure
+    cv::imwrite("../../HW2/output/linear_1_b_2.jpg", matDst1);
+    printf("Save matDst1 as linear_1_b_2.jpg\n");
+# else
+    cv::imwrite("../../HW2/output/linear_1_b_1.jpg", matDst1);
+    printf("Save matDst1 as linear_1_b_1.jpg\n");
+# endif
 //    cv::imwrite("../../HW2/output/linear_2_b.jpg", matDst2);
 //    printf("Save matDst2 as linear_2_b.jpg\n");
     
@@ -112,8 +127,13 @@ int main(int argc, const char * argv[]) {
     bicubic(matSrc, matDst1, matDst2, scale_x, scale_y);
     showImage(matSrc, matDst1, matDst2);
     // Save image
-    cv::imwrite("../../HW2/output/bicubic_1_b.jpg", matDst1);
-    printf("Save matDst1 as bicubic_1_b.jpg\n");
+# ifdef blure
+    cv::imwrite("../../HW2/output/bicubic_1_b_2.jpg", matDst1);
+    printf("Save matDst1 as bicubic_1_b_2.jpg\n");
+# else
+    cv::imwrite("../../HW2/output/bicubic_1_b_1.jpg", matDst1);
+    printf("Save matDst1 as bicubic_1_b_1.jpg\n");
+# endif
 //    cv::imwrite("../../HW2/output/bicubic_2_b.jpg", matDst2);
 //    printf("Save matDst2 as bicubic_2_b.jpg\n");
     

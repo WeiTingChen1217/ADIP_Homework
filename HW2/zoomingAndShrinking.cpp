@@ -52,7 +52,7 @@ void bilinear(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_
     
     for (int j = 0; j < matDst1.rows; ++j)
     {
-        // sx, sy 記錄右上方的位置
+        // sx, sy 記錄左上方的位置
         // fx, fy 為 alpha, beta
         float fy = (float)((j + 0.5) * scale_y - 0.5); // 使得圖像邊緣也被處理到
         int sy = cvFloor(fy);
@@ -127,7 +127,7 @@ void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x
         
         float coeffsY[4];
         coeffsY[0] = ((A*(fy + 1) - 5*A)*(fy + 1) + 8*A)*(fy + 1) - 4*A;
-        coeffsY[1] = ((A + 2)*fy - (A + 3))*fy*fy + 1;
+        coeffsY[1] = ((A + 2)*     fy  - (A + 3))*     fy *     fy  + 1;
         coeffsY[2] = ((A + 2)*(1 - fy) - (A + 3))*(1 - fy)*(1 - fy) + 1;
         coeffsY[3] = 1.f - coeffsY[0] - coeffsY[1] - coeffsY[2];
         
@@ -148,7 +148,7 @@ void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x
             
             float coeffsX[4];
             coeffsX[0] = ((A*(fx + 1) - 5*A)*(fx + 1) + 8*A)*(fx + 1) - 4*A;
-            coeffsX[1] = ((A + 2)*fx - (A + 3))*fx*fx + 1;
+            coeffsX[1] = ((A + 2)*     fx  - (A + 3))*     fx *     fx  + 1;
             coeffsX[2] = ((A + 2)*(1 - fx) - (A + 3))*(1 - fx)*(1 - fx) + 1;
             coeffsX[3] = 1.f - coeffsX[0] - coeffsX[1] - coeffsX[2];
             
@@ -164,19 +164,19 @@ void bicubic(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2, double scale_x
                 matDst1.at<cv::Vec3b>(j, i)[k] = abs(
                     (
                     matSrc.at<cv::Vec3b>(sy-1, sx-1)[k] * cbufX[0] * cbufY[0] +
-                    matSrc.at<cv::Vec3b>(sy, sx-1)[k] * cbufX[0] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy  , sx-1)[k] * cbufX[0] * cbufY[1] +
                     matSrc.at<cv::Vec3b>(sy+1, sx-1)[k] * cbufX[0] * cbufY[2] +
                     matSrc.at<cv::Vec3b>(sy+2, sx-1)[k] * cbufX[0] * cbufY[3] +
-                    matSrc.at<cv::Vec3b>(sy-1, sx)[k] * cbufX[1] * cbufY[0] +
-                    matSrc.at<cv::Vec3b>(sy, sx)[k] * cbufX[1] * cbufY[1] +
-                    matSrc.at<cv::Vec3b>(sy+1, sx)[k] * cbufX[1] * cbufY[2] +
-                    matSrc.at<cv::Vec3b>(sy+2, sx)[k] * cbufX[1] * cbufY[3] +
+                    matSrc.at<cv::Vec3b>(sy-1, sx  )[k] * cbufX[1] * cbufY[0] +
+                    matSrc.at<cv::Vec3b>(sy  , sx  )[k] * cbufX[1] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy+1, sx  )[k] * cbufX[1] * cbufY[2] +
+                    matSrc.at<cv::Vec3b>(sy+2, sx  )[k] * cbufX[1] * cbufY[3] +
                     matSrc.at<cv::Vec3b>(sy-1, sx+1)[k] * cbufX[2] * cbufY[0] +
-                    matSrc.at<cv::Vec3b>(sy, sx+1)[k] * cbufX[2] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy  , sx+1)[k] * cbufX[2] * cbufY[1] +
                     matSrc.at<cv::Vec3b>(sy+1, sx+1)[k] * cbufX[2] * cbufY[2] +
                     matSrc.at<cv::Vec3b>(sy+2, sx+1)[k] * cbufX[2] * cbufY[3] +
                     matSrc.at<cv::Vec3b>(sy-1, sx+2)[k] * cbufX[3] * cbufY[0] +
-                    matSrc.at<cv::Vec3b>(sy, sx+2)[k] * cbufX[3] * cbufY[1] +
+                    matSrc.at<cv::Vec3b>(sy  , sx+2)[k] * cbufX[3] * cbufY[1] +
                     matSrc.at<cv::Vec3b>(sy+1, sx+2)[k] * cbufX[3] * cbufY[2] +
                     matSrc.at<cv::Vec3b>(sy+2, sx+2)[k] * cbufX[3] * cbufY[3]
                     ) >> 22);

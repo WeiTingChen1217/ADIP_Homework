@@ -69,7 +69,7 @@ void showImage(cv::Mat& matSrc, cv::Mat& matDst1, cv::Mat& matDst2){
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "This is homework2.\n\n";
+    std::cout << "This is homework2_1_a.\n\n";
 
     int size = 256;
     char FileNameOri[] = "../../doc/HW1/lena256.raw";
