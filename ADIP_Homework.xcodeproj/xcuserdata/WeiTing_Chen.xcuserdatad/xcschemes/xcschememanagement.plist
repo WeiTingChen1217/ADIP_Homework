@@ -19,9 +19,19 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>HW3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A810D4D31DB9BE0500ECCA61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A868E6301DA54CB4009B3E67</key>
 		<dict>
 			<key>primary</key>

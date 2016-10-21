@@ -1,4 +1,4 @@
-@ 本次作業目的：
+## 本次作業目的：
 1. 使用三種演算法實現圖片檔放大縮小。
     a. 將 lena256.raw 放大 2.25 倍，使用 nearest neighbor, bilinear, bicubic interpolation  方法。
     b. 同上，將圖片縮小 1.28 倍
@@ -35,8 +35,9 @@
 ### OpenCV：CvMat 转 Mat
 - http://blog.csdn.net/holybin/article/details/17711013
 
+## 其他
 
-@ 操作像素
+## 操作像素
 - at()用來訪問像素，可返回左值或右值，所以我們可用at()得到或改變某個像素值，這函式使用模板，所以使用時除了輸入位置，還必須需入影像的像素型態，使用at()函式時，輸入參數順序同樣為先高再寬。
 - Ex:
     - 8位元灰階圖
@@ -46,7 +47,7 @@
 - http://monkeycoding.com/?p=531#i-6
 
 
-@ saturate_cast 防止數據溢出
+## saturate_cast 防止數據溢出
 - http://blog.csdn.net/mjlsuccess/article/details/12401839#
 
 
