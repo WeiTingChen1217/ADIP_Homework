@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "bilinear(cv::Mat&amp; matSrc, cv::Mat&amp; matDst1, cv::Mat&amp; matDst2, double scale_x, double scale_y)"
-            landmarkType = "7">
+            endingLineNumber = "127">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,17 +7,17 @@
 2. ...
 
 
-@ 好的教學網站：
+## 好的教學網站：
 - http://yzu1022cs368s991412.blogspot.tw/2014/03/digital-image-processing1-scale-rotate.html
 
 
-@ 解釋
+## 解釋
 - nearest_1.jpg - 使用 Nearest neighbor interpolation approaches 將圖片放大至576*576 的大小
 - nearest_2.jpg - 使用 OpenCV API
 
+## OpenCV函數
 
-
-@ OpenCV 中的 Resize 圖像大小變換
+### OpenCV 中的 Resize 圖像大小變換
 - 原型：
     void cv::resize(constCvArr*src,CvArr*dst,intinterpolation=CV_INTER_LINEAR);
 - 參數：
@@ -32,7 +32,7 @@
 - http://baike.baidu.com/view/7317818.htm
 
 
-@ OpenCV：CvMat 转 Mat
+### OpenCV：CvMat 转 Mat
 - http://blog.csdn.net/holybin/article/details/17711013
 
 
