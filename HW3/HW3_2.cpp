@@ -37,13 +37,10 @@ void imhist_1(double image[8][8], int histogram[], const int nrows, const int nc
 
 void imhist_2(Mat image, int histogram[])
 {
-    
     // initialize all intensity values to 0
     for(int i = 0; i < 256; i++)
-    {
         histogram[i] = 0;
-    }
-    
+        
     // calculate the no of pixels for each intensity values
     for(int y = 0; y < image.rows; y++)
         for(int x = 0; x < image.cols; x++)
@@ -121,8 +118,9 @@ void histDisplay(int histogram[], const char* name)
     for(int i = 0; i < 256; i++)
     {
         line(histImage,
-             Point(bin_w*(i), hist_h),
-             Point(bin_w*(i), hist_h - hist[i]),
+             Point(bin_w*(i), hist_h),  // First point of the line segment.
+
+             Point(bin_w*(i), hist_h - hist[i]), // Second point of the line segment.
              Scalar(0,0,0), 1, 8, 0);
     }
     
@@ -210,11 +208,9 @@ int main()
         // Calculate the probability of each intensity
         float PrRk[256];
         for(int i = 0; i < 256; i++)
-        {
             PrRk[i] = (double)histogram[i] / size;
             // PrRk: PDF(機率密度函數)
             // pr(rk)=nk/(image.rows * image.cols)
-        }
         
         // Generate cumulative frequency histogram
         int cumhistogram[256];  // CDF
@@ -223,29 +219,23 @@ int main()
         // Scale the histogram
         int Sk[256];
         for(int i = 0; i < 256; i++)
-        {
             Sk[i] = cvRound((double)cumhistogram[i] * 255.0 / size);
             // Sk: CDF四捨五入後的結果
-        }
         
         
         // Generate the equlized histogram
         float PsSk[256];
         for(int i = 0; i < 256; i++)
-        {
             PsSk[i] = 0;
-        }
         
         for(int i = 0; i < 256; i++)
-        {
             PsSk[Sk[i]] = PsSk[Sk[i]] + PrRk[i];
             // PsSk: 將原本的灰階值對應到新的灰階值。Equlized
-        }
         
         int final[256];
         for(int i = 0; i < 256; i++)
-            final[i] = cvRound(PsSk[i] * 255.0 * 255.0);
-            // PsSk[i]*255: number
+            final[i] = cvRound(PsSk[i] * 10000);
+            // PsSk[i] 取小數點以下第四位
         
         
         // Generate the equlized image
