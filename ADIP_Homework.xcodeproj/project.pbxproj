@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A810D4BA1DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4B81DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp */; };
 		A810D4CF1DB766AE00ECCA61 /* HW2_2_b.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4C71DB6108D00ECCA61 /* HW2_2_b.cpp */; };
-		A810D4D71DB9BE0500ECCA61 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* main.cpp */; };
+		A810D4D71DB9BE0500ECCA61 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -61,7 +61,7 @@
 		A810D4C51DB6066500ECCA61 /* HW2_2_a.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW2_2_a.cpp; sourceTree = "<group>"; };
 		A810D4C71DB6108D00ECCA61 /* HW2_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW2_2_b.cpp; sourceTree = "<group>"; };
 		A810D4D41DB9BE0500ECCA61 /* HW3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW3; sourceTree = BUILT_PRODUCTS_DIR; };
-		A810D4D61DB9BE0500ECCA61 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2.cpp; sourceTree = "<group>"; };
 		A868E62B1DA54BDC009B3E67 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A868E6311DA54CB4009B3E67 /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW1; sourceTree = BUILT_PRODUCTS_DIR; };
 		A868E6381DA54D1A009B3E67 /* homework-post.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "homework-post.pdf"; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		A868E6621DA7632D009B3E67 /* HW1#1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = "HW1#1.bmp"; path = "../../../Google 雲端硬碟/「碩二上課程」/高等數位影像/Homework/HW1_104368022/HW1/HW1#1.bmp"; sourceTree = "<group>"; };
 		A868E6631DA7632D009B3E67 /* HW1#2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = "HW1#2.bmp"; path = "../../../Google 雲端硬碟/「碩二上課程」/高等數位影像/Homework/HW1_104368022/HW1/HW1#2.bmp"; sourceTree = "<group>"; };
 		A868E66F1DA79B1E009B3E67 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lena.jpg; path = doc/lena.jpg; sourceTree = "<group>"; };
+		A86BDB9C1DBF605300BD0D26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,7 +131,8 @@
 		A810D4D51DB9BE0500ECCA61 /* HW3 */ = {
 			isa = PBXGroup;
 			children = (
-				A810D4D61DB9BE0500ECCA61 /* main.cpp */,
+				A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */,
+				A86BDB9C1DBF605300BD0D26 /* README.md */,
 			);
 			path = HW3;
 			sourceTree = "<group>";
@@ -337,7 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A810D4D71DB9BE0500ECCA61 /* main.cpp in Sources */,
+				A810D4D71DB9BE0500ECCA61 /* HW3_2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +568,7 @@
 				A810D4D91DB9BE0500ECCA61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A868E6351DA54CB4009B3E67 /* Build configuration list for PBXNativeTarget "HW1" */ = {
 			isa = XCConfigurationList;
