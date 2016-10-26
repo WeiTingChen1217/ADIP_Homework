@@ -86,7 +86,6 @@
 		A86BDB9C1DBF605300BD0D26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A86BDB9D1DBF988C00BD0D26 /* HW3_2_a.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2_a.cpp; sourceTree = "<group>"; };
 		A86BDB9E1DBF988C00BD0D26 /* HW3_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2_b.cpp; sourceTree = "<group>"; };
-		A86BDBA31DC067A200BD0D26 /* ignore.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = ignore.gitignore; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,7 +195,6 @@
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
-				A86BDBA31DC067A200BD0D26 /* ignore.gitignore */,
 				A868E64B1DA7587C009B3E67 /* doc */,
 				A868E6481DA54FCB009B3E67 /* README.md */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
