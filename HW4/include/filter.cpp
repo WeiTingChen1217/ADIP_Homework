@@ -16,6 +16,15 @@ void low_pass_filter(Mat src1, Mat src2, int a){
         {
             Scalar intensity1 = 0;
             Scalar intensity2;
+            if ((i == 0) || (j == 0)) {
+                for (int p = 0; p <= (a-1)/2; p++)
+                    for (int q = 0; q <= (a-1)/2; q++)
+                    {
+                        intensity1 = src1.at<uchar>(i+p, j+q);
+                        intensity2.val[0] += intensity1.val[0]; // 單一通道
+                    }
+            }
+            
             for (int p = 0; p < a; p++)
                 for (int q = 0; q < a; q++)
                 {
@@ -24,17 +33,4 @@ void low_pass_filter(Mat src1, Mat src2, int a){
                 }
             src2.at<uchar>(i+(a-1)/2, j+(a-1)/2) = intensity2.val[0] / (a*a);
         }
-    
-    
-//    //Display the original image
-//    namedWindow("Display Image");
-//    imshow("Display Image", src1);
-//    moveWindow("Display Image", 0, 0);
-//    
-//    
-//    //Display the Low Pass Filtered Image image
-//    namedWindow("Low Pass Filtered Image");
-//    imshow("Low Pass Filtered Image", src2);
-//    moveWindow("Low Pass Filtered Image", src2.cols, 0);
-//    waitKey(0);
 }

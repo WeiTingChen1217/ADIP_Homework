@@ -14,6 +14,7 @@
 		A86BDBA21DBF98CD00BD0D26 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
 		A86BDBAB1DC0767700BD0D26 /* HW4_1_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86BDBAA1DC0767700BD0D26 /* HW4_1_a.cpp */; };
 		A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B31DC736E100B6128B /* filter.cpp */; };
+		A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +104,8 @@
 		A8FAB6B21DC7359F00B6128B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A8FAB6B31DC736E100B6128B /* filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = filter.cpp; path = include/filter.cpp; sourceTree = "<group>"; };
 		A8FAB6B41DC736E100B6128B /* filter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = filter.hpp; path = include/filter.hpp; sourceTree = "<group>"; };
+		A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OpenRawFile.cpp; path = include/OpenRawFile.cpp; sourceTree = "<group>"; };
+		A8FAB6BA1DC73E0000B6128B /* OpenRawFile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OpenRawFile.hpp; path = include/OpenRawFile.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +231,7 @@
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
+				A8FAB6B81DC73D9800B6128B /* include */,
 				A868E6481DA54FCB009B3E67 /* README.md */,
 				A868E64B1DA7587C009B3E67 /* doc */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
@@ -264,6 +268,15 @@
 			children = (
 				A8FAB6B31DC736E100B6128B /* filter.cpp */,
 				A8FAB6B41DC736E100B6128B /* filter.hpp */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		A8FAB6B81DC73D9800B6128B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */,
+				A8FAB6BA1DC73E0000B6128B /* OpenRawFile.hpp */,
 			);
 			name = include;
 			sourceTree = "<group>";
@@ -435,6 +448,7 @@
 			files = (
 				A86BDBAB1DC0767700BD0D26 /* HW4_1_a.cpp in Sources */,
 				A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */,
+				A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
