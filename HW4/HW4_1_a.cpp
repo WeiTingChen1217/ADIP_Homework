@@ -47,5 +47,9 @@ int main( )
     
     waitKey(0);
     
+    // Save image
+    imwrite("../../HW4/output/low_pass.jpg", output_low_pass);
+    printf("Save low_pass.jpg\n");
+
     return 0;
 }
