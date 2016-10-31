@@ -198,6 +198,7 @@ int main()
         // Load the image
         Mat image = cv::cvarrToMat(lenamat, true);
         
+        
         // Generate the histogram
         int histogram[256];
         imhist_2(image, histogram);
