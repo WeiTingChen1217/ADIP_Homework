@@ -14,7 +14,7 @@
 		A86BDBA21DBF98CD00BD0D26 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
 		A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B31DC736E100B6128B /* filter.cpp */; };
 		A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */; };
-		A8FAB6C31DC833C100B6128B /* HW4_1_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6C21DC833C100B6128B /* HW4_1_c.cpp */; };
+		A8FAB6D31DC8C86900B6128B /* HW4_2_b_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,6 +108,10 @@
 		A8FAB6BA1DC73E0000B6128B /* OpenRawFile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OpenRawFile.hpp; path = include/OpenRawFile.hpp; sourceTree = "<group>"; };
 		A8FAB6BC1DC78FA500B6128B /* HW4_1_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_1_b.cpp; sourceTree = "<group>"; };
 		A8FAB6C21DC833C100B6128B /* HW4_1_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_1_c.cpp; sourceTree = "<group>"; };
+		A8FAB6C41DC83A3200B6128B /* HW4_2_a_i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_a_i.cpp; sourceTree = "<group>"; };
+		A8FAB6CA1DC8C22E00B6128B /* HW4_2_a_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_a_ii.cpp; sourceTree = "<group>"; };
+		A8FAB6CC1DC8C2BD00B6128B /* HW4_2_b_i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_b_i.cpp; sourceTree = "<group>"; };
+		A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_b_ii.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,10 @@
 				A86BDBAA1DC0767700BD0D26 /* HW4_1_a.cpp */,
 				A8FAB6BC1DC78FA500B6128B /* HW4_1_b.cpp */,
 				A8FAB6C21DC833C100B6128B /* HW4_1_c.cpp */,
+				A8FAB6C41DC83A3200B6128B /* HW4_2_a_i.cpp */,
+				A8FAB6CA1DC8C22E00B6128B /* HW4_2_a_ii.cpp */,
+				A8FAB6CC1DC8C2BD00B6128B /* HW4_2_b_i.cpp */,
+				A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */,
 				A8FAB6B21DC7359F00B6128B /* README.md */,
 				A8FAB6B71DC736FD00B6128B /* include */,
 			);
@@ -450,8 +458,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8FAB6C31DC833C100B6128B /* HW4_1_c.cpp in Sources */,
 				A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */,
+				A8FAB6D31DC8C86900B6128B /* HW4_2_b_ii.cpp in Sources */,
 				A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

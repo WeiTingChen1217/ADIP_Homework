@@ -21,7 +21,7 @@ void low_pass_filter(Mat src1, Mat src2, int a){
             double intensity2 = 0;
 // 對左上角的影像做處理
             if ((i == 0) && (j == 0)) {
-                char mask[] = { 3, 2,
+                char mask[] = { 4, 2,
                                 2, 1};
                 char count = 0;
                 for (int p = 0; p < 2; p++)
@@ -34,7 +34,7 @@ void low_pass_filter(Mat src1, Mat src2, int a){
 // 對左下角做處理
             }else if ((i == src1.rows-1) && (j == 0)){
                 char mask[] = { 2, 1,
-                                3, 2};
+                                4, 2};
                 char count = 0;
                 for (int p = -1; p < 1; p++)
                     for (int q = 0; q < 2; q++)
@@ -46,7 +46,7 @@ void low_pass_filter(Mat src1, Mat src2, int a){
 
 // 對右上角做處理
             }else if ((i == 0) && (j == src1.cols-1)){
-                char mask[] = { 2, 3,
+                char mask[] = { 2, 4,
                                 1, 2};
                 char count = 0;
                 for (int p = 0; p < 2; p++)
@@ -59,7 +59,7 @@ void low_pass_filter(Mat src1, Mat src2, int a){
 // 對右下角做處理
             }else if ((i == src1.rows-1) && (j == src1.cols-1)){
                 char mask[] = { 1, 2,
-                                2, 3};
+                                2, 4};
                 char count = 0;
                 for (int p = -1; p < 1; p++)
                     for (int q = -1; q < 1; q++)
@@ -137,7 +137,7 @@ void low_pass_filter(Mat src1, Mat src2, int a){
 // 0  1  0
 void high_pass_filter(Mat src1, Mat src2, int a){
     
-    //for loop for counting the number of rows and columns and displaying the pixel value at each point
+
     for (int i = 0; i < src1.rows; i++)
         for (int j = 0; j < src1.cols; j++)
         {
@@ -193,8 +193,8 @@ void high_pass_filter(Mat src1, Mat src2, int a){
                     }
 // 對最上面做處理
             }else if (i == 0){
-                char mask[] = { 1, -3,  1,
-                                0,  1,  0};
+                char mask[] = { 1, -3, 1,
+                                0,  1, 0};
                 char count = 0;
                 for (int p = 0; p < 2; p++)
                     for (int q = -1; q < 2; q++)
@@ -205,8 +205,8 @@ void high_pass_filter(Mat src1, Mat src2, int a){
                     }
 // 對最下面做處理
             }else if (i == src1.rows-1){
-                char mask[] = { 0,  1,  0,
-                                1, -3,  1};
+                char mask[] = { 0,  1, 0,
+                                1, -3, 1};
                 char count = 0;
                 for (int p = -1; p < 1; p++)
                     for (int q = -1; q < 2; q++)
@@ -242,9 +242,9 @@ void high_pass_filter(Mat src1, Mat src2, int a){
                         count++;
                     }
             }else{
-                char mask[] = { 0,  -1,  0,
-                                -1,  4, -1,
-                                0,  -1,  0};
+                char mask[] = {  0,  1, 0,
+                                 1, -4, 1,
+                                 0,  1, 0};
                 char count = 0;
                 for (int p = -1; p < 2; p++)
                     for (int q = -1; q < 2; q++)
@@ -260,7 +260,7 @@ void high_pass_filter(Mat src1, Mat src2, int a){
 
 void median_filter(Mat src1, Mat src2, int a){
     
-    //for loop for counting the number of rows and columns and displaying the pixel value at each point
+
     for (int i = 0; i < src1.rows; i++)
         for (int j = 0; j < src1.cols; j++)
         {
