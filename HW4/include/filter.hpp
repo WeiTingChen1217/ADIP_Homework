@@ -17,5 +17,6 @@ using namespace std;
 
 void low_pass_filter(Mat src1, Mat src2, int a);
 void high_pass_filter(Mat src1, Mat src2, int a);
+void median_filter(Mat src1, Mat src2, int a);
 
 #endif /* filter_hpp */
