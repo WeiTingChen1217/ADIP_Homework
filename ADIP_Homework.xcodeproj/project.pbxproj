@@ -12,7 +12,9 @@
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
 		A86BDBA21DBF98CD00BD0D26 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
-		A86BDBAB1DC0767700BD0D26 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86BDBAA1DC0767700BD0D26 /* main.cpp */; };
+		A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B31DC736E100B6128B /* filter.cpp */; };
+		A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */; };
+		A8FAB6D31DC8C86900B6128B /* HW4_2_b_ii.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,8 +99,19 @@
 		A86BDB9D1DBF988C00BD0D26 /* HW3_2_a.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2_a.cpp; sourceTree = "<group>"; };
 		A86BDB9E1DBF988C00BD0D26 /* HW3_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2_b.cpp; sourceTree = "<group>"; };
 		A86BDBA81DC0767700BD0D26 /* HW4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW4; sourceTree = BUILT_PRODUCTS_DIR; };
-		A86BDBAA1DC0767700BD0D26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A86BDBAA1DC0767700BD0D26 /* HW4_1_a.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_1_a.cpp; sourceTree = "<group>"; };
 		A884A2C71DA54AE70079D6BF /* ADIP_Homework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ADIP_Homework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8FAB6B21DC7359F00B6128B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A8FAB6B31DC736E100B6128B /* filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = filter.cpp; path = include/filter.cpp; sourceTree = "<group>"; };
+		A8FAB6B41DC736E100B6128B /* filter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = filter.hpp; path = include/filter.hpp; sourceTree = "<group>"; };
+		A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OpenRawFile.cpp; path = include/OpenRawFile.cpp; sourceTree = "<group>"; };
+		A8FAB6BA1DC73E0000B6128B /* OpenRawFile.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OpenRawFile.hpp; path = include/OpenRawFile.hpp; sourceTree = "<group>"; };
+		A8FAB6BC1DC78FA500B6128B /* HW4_1_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_1_b.cpp; sourceTree = "<group>"; };
+		A8FAB6C21DC833C100B6128B /* HW4_1_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_1_c.cpp; sourceTree = "<group>"; };
+		A8FAB6C41DC83A3200B6128B /* HW4_2_a_i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_a_i.cpp; sourceTree = "<group>"; };
+		A8FAB6CA1DC8C22E00B6128B /* HW4_2_a_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_a_ii.cpp; sourceTree = "<group>"; };
+		A8FAB6CC1DC8C2BD00B6128B /* HW4_2_b_i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_b_i.cpp; sourceTree = "<group>"; };
+		A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW4_2_b_ii.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +227,15 @@
 		A86BDBA91DC0767700BD0D26 /* HW4 */ = {
 			isa = PBXGroup;
 			children = (
-				A86BDBAA1DC0767700BD0D26 /* main.cpp */,
+				A86BDBAA1DC0767700BD0D26 /* HW4_1_a.cpp */,
+				A8FAB6BC1DC78FA500B6128B /* HW4_1_b.cpp */,
+				A8FAB6C21DC833C100B6128B /* HW4_1_c.cpp */,
+				A8FAB6C41DC83A3200B6128B /* HW4_2_a_i.cpp */,
+				A8FAB6CA1DC8C22E00B6128B /* HW4_2_a_ii.cpp */,
+				A8FAB6CC1DC8C2BD00B6128B /* HW4_2_b_i.cpp */,
+				A8FAB6CE1DC8C33600B6128B /* HW4_2_b_ii.cpp */,
+				A8FAB6B21DC7359F00B6128B /* README.md */,
+				A8FAB6B71DC736FD00B6128B /* include */,
 			);
 			path = HW4;
 			sourceTree = "<group>";
@@ -222,8 +243,9 @@
 		A884A2BE1DA54AE70079D6BF = {
 			isa = PBXGroup;
 			children = (
-				A868E64B1DA7587C009B3E67 /* doc */,
+				A8FAB6B81DC73D9800B6128B /* include */,
 				A868E6481DA54FCB009B3E67 /* README.md */,
+				A868E64B1DA7587C009B3E67 /* doc */,
 				A884A2C91DA54AE70079D6BF /* ADIP_Homework */,
 				A868E6321DA54CB4009B3E67 /* HW1 */,
 				A868E65A1DA75A4F009B3E67 /* HW2 */,
@@ -251,6 +273,24 @@
 				A868E62B1DA54BDC009B3E67 /* main.cpp */,
 			);
 			path = ADIP_Homework;
+			sourceTree = "<group>";
+		};
+		A8FAB6B71DC736FD00B6128B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAB6B31DC736E100B6128B /* filter.cpp */,
+				A8FAB6B41DC736E100B6128B /* filter.hpp */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		A8FAB6B81DC73D9800B6128B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */,
+				A8FAB6BA1DC73E0000B6128B /* OpenRawFile.hpp */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,7 +458,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A86BDBAB1DC0767700BD0D26 /* main.cpp in Sources */,
+				A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */,
+				A8FAB6D31DC8C86900B6128B /* HW4_2_b_ii.cpp in Sources */,
+				A8FAB6BB1DC73E0000B6128B /* OpenRawFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +713,7 @@
 				A86BDBAE1DC0767700BD0D26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A884A2C21DA54AE70079D6BF /* Build configuration list for PBXProject "ADIP_Homework" */ = {
 			isa = XCConfigurationList;
