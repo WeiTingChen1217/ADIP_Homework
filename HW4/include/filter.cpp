@@ -126,8 +126,15 @@ void low_pass_filter(Mat src1, Mat src2, int a){
                         intensity2 += intensity1;
                     }
             }
-            src2.at<uchar>(i, j) = intensity2 / (a*a);
-
+            double intensity3 = 0;
+            for (int p = 0; p < 9; p++) {
+                if (255 < (intensity2 / (a*a)))
+                    intensity3 = 255;
+                if ((intensity2 / (a*a)) < 0)
+                    intensity3 = 0;
+                intensity3 = intensity2 / (a*a);
+            }
+            src2.at<uchar>(i, j) = intensity3;
         }
 }
 
@@ -254,6 +261,12 @@ void high_pass_filter(Mat src1, Mat src2, int a){
                         count++;
                     }
             }
+            for (int p = 0; p < 9; p++) {
+                if (255 < intensity2)
+                    intensity2 = 255;
+                if (intensity2 < 0)
+                    intensity2 = 0;
+            }
             src2.at<uchar>(i, j) = intensity2;
         }
 }
@@ -264,8 +277,8 @@ void median_filter(Mat src1, Mat src2, int a){
     for (int i = 0; i < src1.rows; i++)
         for (int j = 0; j < src1.cols; j++)
         {
-            double intensity1 = 0;
-            char intensity2[9] = {0};
+            int intensity1 = 0;
+            int intensity2[9] = {0};
             char count = 0, count_box = 0;
 
 // 對左上角的影像做處理
@@ -393,6 +406,11 @@ void median_filter(Mat src1, Mat src2, int a){
                 for (int q = 0; q < p; ++q)
                     if (intensity2[q] > intensity2[q + 1])
                         swap(intensity2[q], intensity2[q + 1]);
+            
+            if (intensity2[4] > 255) {
+                intensity2[4] = 255;
+            }
+            
             src2.at<uchar>(i, j) = intensity2[4];
         }
 }
