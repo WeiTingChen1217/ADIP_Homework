@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>HW5.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -53,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>A884A2C61DA54AE70079D6BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8A95C471DD44228000CB7AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
