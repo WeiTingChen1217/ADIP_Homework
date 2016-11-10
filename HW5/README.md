@@ -9,6 +9,7 @@ Note
 <a name="API_copyMakeBorder"></a>  
 ### copyMakeBorder()
 進行卷積處理影像時，在影像的邊界，核心沒有足夠元素納入計算，OpenCV裡用`copyMakeBorder()`函式將原圖稍微放大，再開始進行卷積，OpenCV在空間濾波的相關函式內部已包含`copyMakeBorder()`了，所以實際上使用空間濾波時，不需要呼叫`copyMakeBorder()`。
+
 **C++: **
 `void copyMakeBorder(InputArray src, OutputArray dst, int top, int bottom, int left, int right, int borderType, const Scalar&value=Scalar())`
 
