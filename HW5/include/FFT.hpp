@@ -10,12 +10,14 @@
 #define FFT_hpp
 
 #include <stdio.h>
-#include <opencv2/opencv.hpp>
+#include "opencv2/core/core.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
 
 using namespace cv;
 using namespace std;
 
-void FFT_opencv(Mat src, Mat dst, Mat complexImg);
+Mat FFT_opencv(Mat src, Mat dst);
 
 
 #endif /* FFT_hpp */
