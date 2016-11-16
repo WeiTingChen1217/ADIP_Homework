@@ -8,7 +8,7 @@
 
 #include "FFT.hpp"
 
-Mat FFT_opencv(Mat src, Mat img){
+void FFT_opencv(Mat src, Mat img, Mat *complexImg){
     
     Mat padded;
     int m = getOptimalDFTSize(src.rows);
@@ -20,12 +20,12 @@ Mat FFT_opencv(Mat src, Mat img){
                    Scalar::all(0)); // 為了效率，所以對影像邊界拓展
     
     Mat planes[] = {Mat_<float>(padded), Mat::zeros(padded.size(), CV_32F)};
-    Mat complexImg;
-    merge(planes, 2, complexImg);
-    dft(complexImg, complexImg);
+//    Mat complexImg;
+    merge(planes, 2, *complexImg);
+    dft(*complexImg, *complexImg);
     
     
-    split(complexImg, planes);
+    split(*complexImg, planes);
     // 分離通道，planes[0]為實數部分，planes[1]為虛數部分
     
     magnitude(planes[0], planes[1], planes[0]);
@@ -60,6 +60,5 @@ Mat FFT_opencv(Mat src, Mat img){
     normalize(magI, magI, 0, 1, CV_MINMAX);
     
     magI.convertTo(img, CV_8UC1, 255.0);
-    
-    return complexImg;
+
 }

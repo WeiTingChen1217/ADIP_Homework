@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		A810D4BA1DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4B81DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp */; };
 		A810D4CF1DB766AE00ECCA61 /* HW2_2_b.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4C71DB6108D00ECCA61 /* HW2_2_b.cpp */; };
+		A812C32E1DDCC531006683E8 /* HW5_2_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A812C32A1DDC6694006683E8 /* HW5_2_c.cpp */; };
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
 		A86BDBA21DBF98CD00BD0D26 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
-		A8A95C4B1DD44229000CB7AF /* HW5_2_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A95C4A1DD44229000CB7AF /* HW5_2_a.cpp */; };
 		A8A95C4F1DD44397000CB7AF /* OpenRawFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */; };
 		A8A95C6F1DD5B111000CB7AF /* FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A95C6D1DD5B111000CB7AF /* FFT.cpp */; };
 		A8FAB6B51DC736E100B6128B /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B31DC736E100B6128B /* filter.cpp */; };
@@ -86,6 +86,8 @@
 		A810D4C71DB6108D00ECCA61 /* HW2_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW2_2_b.cpp; sourceTree = "<group>"; };
 		A810D4D41DB9BE0500ECCA61 /* HW3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW3; sourceTree = BUILT_PRODUCTS_DIR; };
 		A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HW3_2.cpp; sourceTree = "<group>"; };
+		A812C32A1DDC6694006683E8 /* HW5_2_c.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW5_2_c.cpp; sourceTree = "<group>"; };
+		A812C32C1DDCADE6006683E8 /* HW5_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW5_2_b.cpp; sourceTree = "<group>"; };
 		A868E62B1DA54BDC009B3E67 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A868E6311DA54CB4009B3E67 /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW1; sourceTree = BUILT_PRODUCTS_DIR; };
 		A868E6381DA54D1A009B3E67 /* homework-post.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "homework-post.pdf"; sourceTree = "<group>"; };
@@ -303,8 +305,10 @@
 			isa = PBXGroup;
 			children = (
 				A8A95C6C1DD5B0DE000CB7AF /* include */,
-				A8A95C4A1DD44229000CB7AF /* HW5_2_a.cpp */,
 				A8A95C6B1DD46BA5000CB7AF /* README.md */,
+				A8A95C4A1DD44229000CB7AF /* HW5_2_a.cpp */,
+				A812C32C1DDCADE6006683E8 /* HW5_2_b.cpp */,
+				A812C32A1DDC6694006683E8 /* HW5_2_c.cpp */,
 			);
 			path = HW5;
 			sourceTree = "<group>";
@@ -608,9 +612,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A812C32E1DDCC531006683E8 /* HW5_2_c.cpp in Sources */,
 				A8A95C6F1DD5B111000CB7AF /* FFT.cpp in Sources */,
 				A8A95C4F1DD44397000CB7AF /* OpenRawFile.cpp in Sources */,
-				A8A95C4B1DD44229000CB7AF /* HW5_2_a.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +900,7 @@
 				A8A95C4E1DD44229000CB7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

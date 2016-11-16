@@ -17,7 +17,7 @@
 using namespace cv;
 using namespace std;
 
-Mat FFT_opencv(Mat src, Mat dst);
+void FFT_opencv(Mat src, Mat dst, Mat *complexImg);
 
 
 #endif /* FFT_hpp */
