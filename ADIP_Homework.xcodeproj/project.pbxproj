@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A803588D1DE6DE4B00274EE3 /* HW6_2_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A812C3351DDDFE5A006683E8 /* HW6_2_a.cpp */; };
 		A810D4BA1DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4B81DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp */; };
 		A810D4CF1DB766AE00ECCA61 /* HW2_2_b.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4C71DB6108D00ECCA61 /* HW2_2_b.cpp */; };
 		A812C32E1DDCC531006683E8 /* HW5_2_c.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A812C32A1DDC6694006683E8 /* HW5_2_c.cpp */; };
-		A812C3361DDDFE5A006683E8 /* HW6_2_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A812C3351DDDFE5A006683E8 /* HW6_2_a.cpp */; };
 		A812C33A1DDDFE82006683E8 /* FFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A95C6D1DD5B111000CB7AF /* FFT.cpp */; };
+		A812C33B1DE09546006683E8 /* OpenRawFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FAB6B91DC73E0000B6128B /* OpenRawFile.cpp */; };
+		A812C34C1DE15862006683E8 /* gaussianNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A812C34A1DE15862006683E8 /* gaussianNoise.cpp */; };
 		A868E62C1DA54BDC009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E62B1DA54BDC009B3E67 /* main.cpp */; };
 		A868E6471DA54D1A009B3E67 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A868E6401DA54D1A009B3E67 /* main.cpp */; };
 		A86BDBA21DBF98CD00BD0D26 /* HW3_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A810D4D61DB9BE0500ECCA61 /* HW3_2.cpp */; };
@@ -89,6 +91,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A803588B1DE5EBEB00274EE3 /* HW6_2_FAN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HW6_2_FAN.cpp; path = ../../../Downloads/HW6_2_FAN.cpp; sourceTree = "<group>"; };
 		A810D4B81DB4EBDB00ECCA61 /* zoomingAndShrinking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoomingAndShrinking.cpp; sourceTree = "<group>"; };
 		A810D4B91DB4EBDB00ECCA61 /* zoomingAndShrinking.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = zoomingAndShrinking.hpp; sourceTree = "<group>"; };
 		A810D4BC1DB4EFD000ECCA61 /* HW2_1_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW2_1_b.cpp; sourceTree = "<group>"; };
@@ -101,6 +104,14 @@
 		A812C32C1DDCADE6006683E8 /* HW5_2_b.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HW5_2_b.cpp; sourceTree = "<group>"; };
 		A812C3331DDDFE5A006683E8 /* HW6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW6; sourceTree = BUILT_PRODUCTS_DIR; };
 		A812C3351DDDFE5A006683E8 /* HW6_2_a.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HW6_2_a.cpp; sourceTree = "<group>"; };
+		A812C3441DE096A9006683E8 /* chessboard_256.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = chessboard_256.raw; sourceTree = "<group>"; };
+		A812C3451DE096A9006683E8 /* chessboard_distorted_256.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = chessboard_distorted_256.raw; sourceTree = "<group>"; };
+		A812C3461DE096A9006683E8 /* lena_256.raw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lena_256.raw; sourceTree = "<group>"; };
+		A812C3471DE096A9006683E8 /* textbook_blur00065_688x688.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = textbook_blur00065_688x688.raw; sourceTree = "<group>"; };
+		A812C3481DE096A9006683E8 /* textbook_blur650_688x688.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = textbook_blur650_688x688.raw; sourceTree = "<group>"; };
+		A812C3491DE096A9006683E8 /* textbook_blur65_688x688.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = textbook_blur65_688x688.raw; sourceTree = "<group>"; };
+		A812C34A1DE15862006683E8 /* gaussianNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gaussianNoise.cpp; path = include/gaussianNoise.cpp; sourceTree = "<group>"; };
+		A812C34B1DE15862006683E8 /* gaussianNoise.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = gaussianNoise.hpp; path = include/gaussianNoise.hpp; sourceTree = "<group>"; };
 		A868E62B1DA54BDC009B3E67 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A868E6311DA54CB4009B3E67 /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW1; sourceTree = BUILT_PRODUCTS_DIR; };
 		A868E6381DA54D1A009B3E67 /* homework-post.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "homework-post.pdf"; sourceTree = "<group>"; };
@@ -239,9 +250,33 @@
 		A812C3341DDDFE5A006683E8 /* HW6 */ = {
 			isa = PBXGroup;
 			children = (
+				A812C34D1DE1586E006683E8 /* include */,
 				A812C3351DDDFE5A006683E8 /* HW6_2_a.cpp */,
+				A803588B1DE5EBEB00274EE3 /* HW6_2_FAN.cpp */,
 			);
 			path = HW6;
+			sourceTree = "<group>";
+		};
+		A812C3431DE096A9006683E8 /* HW6 */ = {
+			isa = PBXGroup;
+			children = (
+				A812C3441DE096A9006683E8 /* chessboard_256.raw */,
+				A812C3451DE096A9006683E8 /* chessboard_distorted_256.raw */,
+				A812C3461DE096A9006683E8 /* lena_256.raw */,
+				A812C3471DE096A9006683E8 /* textbook_blur00065_688x688.raw */,
+				A812C3481DE096A9006683E8 /* textbook_blur650_688x688.raw */,
+				A812C3491DE096A9006683E8 /* textbook_blur65_688x688.raw */,
+			);
+			path = HW6;
+			sourceTree = "<group>";
+		};
+		A812C34D1DE1586E006683E8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A812C34A1DE15862006683E8 /* gaussianNoise.cpp */,
+				A812C34B1DE15862006683E8 /* gaussianNoise.hpp */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 		A868E6321DA54CB4009B3E67 /* HW1 */ = {
@@ -351,6 +386,7 @@
 				A8A95C581DD44484000CB7AF /* HW3 */,
 				A8A95C5D1DD44484000CB7AF /* HW4 */,
 				A8A95C621DD44484000CB7AF /* HW5 */,
+				A812C3431DE096A9006683E8 /* HW6 */,
 				A8A95C681DD44484000CB7AF /* lena.jpg */,
 				A8A95C691DD44484000CB7AF /* lena_256.jpg */,
 				A8A95C6A1DD44484000CB7AF /* lena_512.jpg */,
@@ -629,7 +665,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A812C33A1DDDFE82006683E8 /* FFT.cpp in Sources */,
-				A812C3361DDDFE5A006683E8 /* HW6_2_a.cpp in Sources */,
+				A812C33B1DE09546006683E8 /* OpenRawFile.cpp in Sources */,
+				A803588D1DE6DE4B00274EE3 /* HW6_2_a.cpp in Sources */,
+				A812C34C1DE15862006683E8 /* gaussianNoise.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +967,7 @@
 				A812C3381DDDFE5A006683E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A868E6351DA54CB4009B3E67 /* Build configuration list for PBXNativeTarget "HW1" */ = {
 			isa = XCConfigurationList;
